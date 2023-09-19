@@ -1,6 +1,4 @@
-
 //Comment1
-
-public class example {
-
+public class example
+{
 }
