@@ -1,9 +1,11 @@
 package elements;
 
+import hooks.webHooks;
+
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
-public class TaskPage {
+public class taskPageElements extends webHooks {
     public void openTask(String taskName) {
         $(byXpath("//a[text()='" + taskName + "']")).click();
     }

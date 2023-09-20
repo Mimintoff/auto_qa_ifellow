@@ -1,0 +1,23 @@
+package elements;
+
+import com.codeborne.selenide.SelenideElement;
+import hooks.webHooks;
+import org.openqa.selenium.By;
+
+import static com.codeborne.selenide.Selectors.byXpath;
+import static com.codeborne.selenide.Selenide.$;
+
+public class projectPageElements extends webHooks {
+    public static SelenideElement ProjectLink = $(byXpath("//a[@id='browse_link']"));
+    public static SelenideElement ProjectChoice = $(byXpath("//a[@id='admin_main_proj_link_lnk']"));
+    public static SelenideElement ProjectCount = $(byXpath("//div[@class='showing']//span"));
+
+
+    }
+
+
+
+
+
+
+
