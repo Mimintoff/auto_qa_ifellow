@@ -8,9 +8,9 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class createIssuePageElements extends webHooks {
 
-   public static SelenideElement ProjectLink = $(byXpath("//a[@id='browse_link']"));
-   public static SelenideElement ProjectChoice = $(byXpath("//a[@id='admin_main_proj_link_lnk']"));
-   public static SelenideElement ProjectCount = $(byXpath("//div[@class='showing']//span[@xpath=\"1\"]"));
+   public static SelenideElement CreateButton = $(byXpath("//a[@id='create_link']"));
+   public static SelenideElement CreateWindow = $(byXpath("//body/section[@id='create-issue-dialog']/div[1]"));
+
 
 }
 //    public void createIssue(String issueType, String description) {

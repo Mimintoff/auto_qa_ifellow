@@ -1,3 +1,4 @@
+package tests;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -22,7 +23,7 @@ public class JiraTestProjectCount extends projectPageSteps {
     public void checkTotalTasks() {
         String str = ProjectCount.getText();
         String[] parts = str.split("из");
-        String lastPart = parts[parts.length - 1].trim(); // trim() используется для удаления пробелов
+        String lastPart = parts[parts.length - 1].trim();
         int lastNumber = Integer.parseInt(lastPart);
         System.out.println(lastNumber);
 
@@ -49,4 +50,7 @@ public class JiraTestProjectCount extends projectPageSteps {
 ////        createIssuePageElements createIssuePageElements = new createIssuePageElements();
 ////        createIssuePageElements.createIssue("Bug", "Test description");
 ////        createIssuePageElements.transitionIssue("Close");
+
+
+
 }
