@@ -13,5 +13,6 @@ public class webHooks {
         Configuration.browserSize = "max";
         Configuration.baseUrl = "https://edujira.ifellow.ru";
 
+
     }
 }

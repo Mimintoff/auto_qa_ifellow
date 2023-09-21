@@ -2,6 +2,7 @@ package tests;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import steps.loginPageSteps;
 import steps.projectPageSteps;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -12,12 +13,12 @@ public class JiraTestProjectCount extends projectPageSteps {
     @BeforeAll
     public static void JiraOpen  () {
         open("/");
-        usernameField.setValue("AT10");
-        passwordField.setValue("Qwerty123");
-        loginButton.click();
-        ProjectLink.click();
-        ProjectChoice.click();
+        loginPageSteps.enterUsername();
+        loginPageSteps.enterPassword();
+        loginPageSteps.clickLoginButton();
     }
+
+
 
     @Test
     public void checkTotalTasks() {

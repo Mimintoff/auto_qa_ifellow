@@ -1,18 +1,27 @@
 package steps;
 
-import com.codeborne.selenide.Condition;
 import elements.taskPageElements;
-
 import java.time.Duration;
-
 import static com.codeborne.selenide.Condition.visible;
 
 public class taskPageSteps extends taskPageElements {
 
-    public static void TaskSearch(){
-        TaskSearchInput.shouldBe(visible, Duration.ofSeconds(5)).click();
-        TaskSearchInput.setValue("TEST-21967");
-        TaskChoice.shouldBe(visible, Duration.ofSeconds(5)).getText();
-        TaskStatus.shouldBe(visible, Duration.ofSeconds(5)).getText();
+    public static void searchTaskInput() {
+        TaskSearchInput.shouldBe(visible, Duration.ofSeconds(30)).click();
+    }
+
+    public static void selectTask() {
+        TaskChoice.shouldBe(visible, Duration.ofSeconds(20)).click();
+
+    }
+
+    public static String getTaskStatus() {
+
+        return TaskStatus.shouldBe(visible, Duration.ofSeconds(20)).getText();
+    }
+
+    public static String getTaskVersion() {
+
+        return TaskVersion.shouldBe(visible, Duration.ofSeconds(20)).getText();
     }
 }

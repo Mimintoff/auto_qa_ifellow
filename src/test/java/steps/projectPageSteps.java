@@ -4,12 +4,16 @@ import elements.projectPageElements;
 
 public class projectPageSteps extends projectPageElements {
 
-    public static void CreateProject(){
-
+    public static void clickProjectLink() {
         ProjectLink.click();
-        ProjectChoice.click();
-        ProjectCount.click();
+    }
 
+    public static void clickProjectChoice() {
+        ProjectChoice.click();
+    }
+
+    public static String getProjectCount() {
+        return ProjectCount.getText();
     }
 
 
