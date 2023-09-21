@@ -2,10 +2,10 @@ package tests;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import steps.loginPageSteps;
 import steps.taskPageSteps;
 
 import static com.codeborne.selenide.Selenide.open;
+import static steps.loginPageSteps.*;
 
 public class JiraTestTaskChoice extends taskPageSteps {
 
@@ -13,9 +13,9 @@ public class JiraTestTaskChoice extends taskPageSteps {
     @BeforeAll
     public static void JiraOpenAndLogin() {
         open("/");
-        loginPageSteps.enterUsername();
-        loginPageSteps.enterPassword();
-        loginPageSteps.clickLoginButton();
+        enterUsername();
+        enterPassword();
+        clickLoginButton();
     }
 
     @Test

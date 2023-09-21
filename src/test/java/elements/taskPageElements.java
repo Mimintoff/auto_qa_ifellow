@@ -8,8 +8,6 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class taskPageElements extends webHooks {
 
-
-
     public static SelenideElement TaskSearchInput = $(byXpath("//input[@id='quickSearchInput']"));
     public static SelenideElement TaskChoice = $(byXpath("//span[contains(text(),'TestSelenium_bug')]"));
     public static SelenideElement TaskStatus = $(byXpath("//span[@id='status-val']"));

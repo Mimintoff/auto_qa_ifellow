@@ -16,9 +16,9 @@ public class JiraTestLogin extends loginPageSteps {
     }
     @Test
     public void loginTest() {
-        loginPageSteps.enterUsername();
-        loginPageSteps.enterPassword();
-        loginPageSteps.clickLoginButton();
+        enterUsername();
+        enterPassword();
+        clickLoginButton();
     }
 }
 

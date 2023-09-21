@@ -2,74 +2,97 @@ package steps;
 
 import elements.createIssuePageElements;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.visible;
 
 public class createIssuePageSteps extends createIssuePageElements {
 
     public static void clickCreateButton() {
-        CreateButton.click();
+        CreateButton.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
 
     public static void checkCreateWindow() {
-        CreateWindow.shouldBe(visible);
+        CreateWindow.shouldBe(visible, Duration.ofSeconds(30));
     }
 
     public static void selectProject() {
-        ProjectField.click();
-        ProjectFieldChoice.click();
+        ProjectField.shouldBe(visible, Duration.ofSeconds(30)).click();
+        ProjectFieldChoice.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
 
     public static void selectIssueType() {
-        IssueTypeField.click();
-        IssueTypeFieldChoice.click();
+        IssueTypeField.shouldBe(visible, Duration.ofSeconds(30)).click();
+        IssueTypeFieldChoice.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
 
     public static void enterIssueSummary() {
-        IssueSummary.click();
+        IssueSummary.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
 
     public static void selectIssueDescriptionType() {
-        IssueDescriptionType.click();
+        IssueDescriptionType.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
 
     public static void enterIssueDescription() {
-        IssueDescription.click();
+        IssueDescription.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
 
     public static void selectIssueFixVersion() {
-        IssueFixVersion.click();
+        IssueFixVersion.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
 
     public static void selectPriority() {
-        PriorityField.click();
+        PriorityField.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
 
     public static void selectIssueEnvironmentType() {
-        IssueEnvironmentType.click();
+        IssueEnvironmentType.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
 
     public static void enterIssueEnvironment() {
-        IssueEnvironment.click();
+        IssueEnvironment.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
 
     public static void selectIssueAffectedVersion() {
-        IssueAffectedVersion.click();
+        IssueAffectedVersion.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
 
     public static void selectIssueRelatedTasks() {
-        IssueRelatedTasks.click();
+        IssueRelatedTasks.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
 
     public static void assignIssueToMe() {
-        IssueAssignToMe.click();
+        IssueAssignToMe.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
 
     public static void enterIssueSprint() {
-        IssueSprint.click();
+        IssueSprint.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
 
     public static void clickCreateIssueButton() {
-        CreateIssueButton.click();
+        CreateIssueButton.shouldBe(visible, Duration.ofSeconds(30)).click();
+    }
+    public void checkCreatedIssueKey() {
+        CreatedIssueKey.shouldBe(visible, Duration.ofSeconds(30));
+    }
+
+    public void checkIssueStatusInWork() {
+        IssueStatusInWork.shouldBe(visible, Duration.ofSeconds(30));
+    }
+
+    public void clickIssueStatusWorkFlow() {
+        IssueStatusWorkFlow.shouldBe(visible, Duration.ofSeconds(30)).click();
+    }
+
+    public void checkIssueFinalizationWindow() {
+        IssueFinalizationWindowCheck.shouldBe(visible, Duration.ofSeconds(30));
+    }
+
+    public void clickIssueFinalizationWindowCheckButton() {
+        IssueFinalizationWindowCheckButton.shouldBe(visible, Duration.ofSeconds(30)).click();
+    }public void checkIssueStatusClosed() {
+        checkIssueStatusClosed.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
 }
 
