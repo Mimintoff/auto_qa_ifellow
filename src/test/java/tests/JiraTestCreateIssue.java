@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import steps.createIssuePageSteps;
@@ -23,7 +24,7 @@ public class JiraTestCreateIssue extends createIssuePageSteps {
         clickCreateButton();
         checkCreateWindow();
 
-
+        selectProjectField();
         selectProject();
         selectIssueType();
         enterIssueSummary();

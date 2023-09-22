@@ -16,8 +16,11 @@ public class createIssuePageSteps extends createIssuePageElements {
         CreateWindow.shouldBe(visible, Duration.ofSeconds(30));
     }
 
+    public static void selectProjectField() {
+            ProjectField.shouldBe(visible, Duration.ofSeconds(30)).click();
+
+    }
     public static void selectProject() {
-        ProjectField.shouldBe(visible, Duration.ofSeconds(30)).click();
         ProjectFieldChoice.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
 
@@ -33,7 +36,6 @@ public class createIssuePageSteps extends createIssuePageElements {
     public static void selectIssueDescriptionType() {
         IssueDescriptionType.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
-
     public static void enterIssueDescription() {
         IssueDescription.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
@@ -49,7 +51,6 @@ public class createIssuePageSteps extends createIssuePageElements {
     public static void selectIssueEnvironmentType() {
         IssueEnvironmentType.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
-
     public static void enterIssueEnvironment() {
         IssueEnvironment.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
@@ -73,6 +74,7 @@ public class createIssuePageSteps extends createIssuePageElements {
     public static void clickCreateIssueButton() {
         CreateIssueButton.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
+
     public void checkCreatedIssueKey() {
         CreatedIssueKey.shouldBe(visible, Duration.ofSeconds(30));
     }
@@ -91,7 +93,9 @@ public class createIssuePageSteps extends createIssuePageElements {
 
     public void clickIssueFinalizationWindowCheckButton() {
         IssueFinalizationWindowCheckButton.shouldBe(visible, Duration.ofSeconds(30)).click();
-    }public void checkIssueStatusClosed() {
+    }
+
+    public void checkIssueStatusClosed() {
         checkIssueStatusClosed.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
 }

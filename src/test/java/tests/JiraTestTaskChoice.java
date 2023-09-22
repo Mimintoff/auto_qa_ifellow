@@ -20,11 +20,12 @@ public class JiraTestTaskChoice extends taskPageSteps {
 
     @Test
     public void TaskSearchTest() {
-        taskPageSteps.TaskSearchInput.setValue("TEST-21967");
-        taskPageSteps.selectTask();
+        TaskSearchInput.setValue("TEST-21967");
+        selectTask();
         String version = taskPageSteps.getTaskVersion();
         String status = taskPageSteps.getTaskStatus();
         System.out.println(version);
         System.out.println(status);
+
     }
 }
