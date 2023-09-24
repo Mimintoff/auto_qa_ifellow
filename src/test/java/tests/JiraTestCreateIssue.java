@@ -1,58 +1,68 @@
 package tests;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import steps.createIssuePageSteps;
-import steps.loginPageSteps;
 
 import static com.codeborne.selenide.Selenide.open;
+import static steps.loginPageSteps.*;
 
 public class JiraTestCreateIssue extends createIssuePageSteps {
 
     @BeforeAll
     public static void JiraOpen() {
         open("/");
-        loginPageSteps.enterUsername();
-        loginPageSteps.enterPassword();
-        loginPageSteps.clickLoginButton();
+        enterUsername();
+        enterPassword();
+        clickLoginButton();
+    }
+
+    @Test()
+    @Tag("Проверяем_открытие_окна_создания_задачи")
+    public void createNewIssueAndCloseIt() {
+        OpenCreateTaskWindow();
     }
 
     @Test
-    public void createNewIssueAndCloseIt() {
-
-        clickCreateButton();
-        checkCreateWindow();
-
-        selectProjectField();
-        selectProject();
-        selectIssueType();
-        enterIssueSummary();
-        enterIssueDescription();
-        selectPriority();
-        assignIssueToMe();
-
-
-        selectIssueDescriptionType();
-        selectIssueFixVersion();
-        selectIssueEnvironmentType();
-        enterIssueEnvironment();
-        selectIssueAffectedVersion();
+    @Tag("Проверяем_создание_задачи")
+    public void createAndCloseIssueTest() {
+        FillProjectField();
+        FillIssueTypeField();
+        FillSummaryField();
+        FillDescriptionField();
+        FillFixVersionField();
+        FillPriorityField();
+        FillLabelsField();
+        FillEnvironmentField();
+        FillAffectedVersionField();
         selectIssueRelatedTasks();
+        assignIssueToMe();
         enterIssueSprint();
-
-
         clickCreateIssueButton();
         checkCreatedIssueKey();
-
-
+        checkCreatedIssueAssignToMe();
         checkIssueStatusInWork();
         clickIssueStatusWorkFlow();
         checkIssueFinalizationWindow();
         clickIssueFinalizationWindowCheckButton();
 
-
-        checkIssueStatusClosed();
     }
 
+    @Test
+    @Tag("Проверяем_статус_закрыто")
+    public void CheckStatusClose() {
+        checkIssueStatusClosed();
+    }
 }
+
+
+
+
+
+
+
+
+
+
+

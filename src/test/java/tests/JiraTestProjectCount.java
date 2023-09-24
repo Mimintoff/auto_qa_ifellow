@@ -7,6 +7,7 @@ import steps.projectPageSteps;
 
 import static com.codeborne.selenide.Selenide.open;
 import static elements.loginPageElements.*;
+import static steps.loginPageSteps.clickLoginButton;
 
 public class JiraTestProjectCount extends projectPageSteps {
 
@@ -15,7 +16,7 @@ public class JiraTestProjectCount extends projectPageSteps {
         open("/");
         loginPageSteps.enterUsername();
         loginPageSteps.enterPassword();
-        loginPageSteps.clickLoginButton();
+        clickLoginButton();
     }
 
     @Test
