@@ -13,15 +13,13 @@ public class createIssuePageSteps extends createIssuePageElements {
     public void OpenCreateTaskWindow() {
         CreateButton.shouldBe(visible, Duration.ofSeconds(30)).click();
         CreateWindow.shouldBe(visible, Duration.ofSeconds(30));
-
-
     }
 
     @Step("Зполняем поля:выбора проекта, типа задачи, названия задачи, поле описание")
     public void FillRequiredFields() {
-//        ProjectField.shouldBe(visible, Duration.ofSeconds(30)).setValue("Test (TEST)").pressEnter();
-//
-       IssueTypeField.shouldBe(visible, Duration.ofSeconds(30)).setValue("Ошибка").pressEnter();
+        ProjectField.shouldBe(visible, Duration.ofSeconds(30)).setValue("Test (TEST)").pressEnter();
+
+        IssueTypeField.shouldBe(visible, Duration.ofSeconds(30)).setValue("Ошибка").pressEnter();
 
         IssueSummary.shouldBe(visible, Duration.ofSeconds(30)).setValue("Ошибка_Тестовая").pressEnter();//поле названия задачи
 
@@ -30,7 +28,6 @@ public class createIssuePageSteps extends createIssuePageElements {
 
 
     }
-
 
 
     @Step("Заполняем поле Исправить в версиях")
