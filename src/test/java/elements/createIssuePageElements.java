@@ -11,9 +11,9 @@ public class createIssuePageElements extends webHooks {
     public static SelenideElement CreateButton = $(byXpath("//a[@id='create_link']"));
     public static SelenideElement CreateWindow = $(byXpath("//body/section[@id='create-issue-dialog']/div[1]"));
     public static SelenideElement ProjectField = $(byXpath("//input[@id='project-field']"));
-    public static SelenideElement ProjectFieldChoice = $(byXpath("a[contains(text(),'Test (TEST)')]"));
+
     public static SelenideElement IssueTypeField = $(byXpath("//div[@id='issuetype-single-select']/span"));
-    public static SelenideElement IssueTypeFieldChoice = $(byXpath("//a[contains(text(),'Ошибка')]"));
+//    public static SelenideElement IssueTypeFieldChoice = $(byXpath("//a[contains(text(),'Ошибка')]"));
     public static SelenideElement IssueSummary = $(byXpath("//input[@id='summary']"));
     public static SelenideElement IssueDescriptionType = $(byXpath("(//button[contains(text(),'Текст')])[1]"));
     public static SelenideElement IssueDescription = $(byXpath("//textarea[@id='description']"));

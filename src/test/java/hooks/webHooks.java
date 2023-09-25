@@ -12,6 +12,7 @@ public class webHooks {
         Configuration.pageLoadStrategy = "normal";
         Configuration.browserSize = "max";
         Configuration.baseUrl = "https://edujira.ifellow.ru";
+        Configuration.timeout = 10000;
 
 
     }
