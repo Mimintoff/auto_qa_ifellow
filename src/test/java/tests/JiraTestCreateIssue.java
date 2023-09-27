@@ -29,30 +29,15 @@ public class JiraTestCreateIssue extends createIssuePageSteps {
     private void createIssue() {
         OpenCreateTaskWindow();
         FillRequiredFields("Ошибка", "Ошибка_Тестовая_Описание");
-        FillFixVersionField();
-        FillPriorityField();
-        FillLabelsField();
-        FillEnvironmentField();
-        FillAffectedVersionField();
-        selectIssueRelatedTasks();
-        assignIssueToMe();
-        enterIssueSprint();
-        clickCreateIssueButton();
-    }
-
-    @Test
-    @Tag("Проверяем_закрытие_задачи")
-    public void ClosedIssueTest() {
-        createIssue();
+        FillNoRequiredFields();
         checkCreatedIssueKey();
         checkCreatedIssueAssignToMe();
         clickIssueStatusInWork();
         clickIssueStatusWorkFlow();
         clickIssueFinalizationWindowCheckButton();
         checkIssueStatusClosed("РЕШЕННЫЕ");
-
-
     }
+
 }
 
 

@@ -28,55 +28,67 @@ public class createIssuePageSteps extends createIssuePageElements {
         IssueDescriptionType.shouldBe(visible, Duration.ofSeconds(30)).click();//поле описание
         IssueDescription.shouldBe(visible, Duration.ofSeconds(30)).setValue(Description);//"Ошибка_Тестовая_Описание"
     }
-
-
-    @Step("Заполняем поле Исправить в версиях")
-    public void FillFixVersionField() {
+    public void FillNoRequiredFields() {
         IssueFixVersion.shouldBe(visible, Duration.ofSeconds(30)).click();
-    }
-
-    @Step("Заполняем поле приоритета задачи")
-    public void FillPriorityField() {
-
         PriorityField.shouldBe(visible, Duration.ofSeconds(30)).click();
-    }
-
-    @Step("Заполняем поле Метки")
-    public void FillLabelsField() {
         Issuelabels.shouldBe(visible, Duration.ofSeconds(30)).click();
-    }
-
-    @Step("Заполняем поле окружения задачи")
-    public void FillEnvironmentField() {
         IssueEnvironmentType.shouldBe(visible, Duration.ofSeconds(30)).click();
         IssueEnvironment.shouldBe(visible, Duration.ofSeconds(30)).click();
-    }
-
-    @Step("Заполняем поле Затронуты версии")
-    public void FillAffectedVersionField() {
         IssueAffectedVersion.shouldBe(visible, Duration.ofSeconds(30)).click();
-    }
-
-    @Step("Заполняем поля Связанные задачи")
-    public static void selectIssueRelatedTasks() {
         IssueRelatedTasksType.shouldBe(visible, Duration.ofSeconds(30)).click();
-        IssueRelatedTasks.shouldBe(visible, Duration.ofSeconds(30)).click();//вставить текст
-    }
-
-    @Step("Нажимаем кнопку Назначить на меня")
-    public static void assignIssueToMe() {
+        IssueRelatedTasks.shouldBe(visible, Duration.ofSeconds(30)).click();
         IssueAssignToMe.shouldBe(visible, Duration.ofSeconds(30)).click();
-    }
-
-    @Step("Заполняем поле Спринт")
-    public static void enterIssueSprint() {
         IssueSprint.shouldBe(visible, Duration.ofSeconds(30)).click();
-    }
-
-    @Step("Нажимаем на кнопку создать")
-    public static void clickCreateIssueButton() {
         CreateIssueButton.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
+//
+//    @Step("Заполняем поле Исправить в версиях")
+//    public void FillFixVersionField() {
+//        IssueFixVersion.shouldBe(visible, Duration.ofSeconds(30)).click();
+//    }
+//
+//    @Step("Заполняем поле приоритета задачи")
+//    public void FillPriorityField() {
+//
+//        PriorityField.shouldBe(visible, Duration.ofSeconds(30)).click();
+//    }
+//
+//    @Step("Заполняем поле Метки")
+//    public void FillLabelsField() {
+//        Issuelabels.shouldBe(visible, Duration.ofSeconds(30)).click();
+//    }
+//
+//    @Step("Заполняем поле окружения задачи")
+//    public void FillEnvironmentField() {
+//        IssueEnvironmentType.shouldBe(visible, Duration.ofSeconds(30)).click();
+//        IssueEnvironment.shouldBe(visible, Duration.ofSeconds(30)).click();
+//    }
+//
+//    @Step("Заполняем поле Затронуты версии")
+//    public void FillAffectedVersionField() {
+//        IssueAffectedVersion.shouldBe(visible, Duration.ofSeconds(30)).click();
+//    }
+//
+//    @Step("Заполняем поля Связанные задачи")
+//    public static void selectIssueRelatedTasks() {
+//        IssueRelatedTasksType.shouldBe(visible, Duration.ofSeconds(30)).click();
+//        IssueRelatedTasks.shouldBe(visible, Duration.ofSeconds(30)).click();
+//    }
+//
+//    @Step("Нажимаем кнопку Назначить на меня")
+//    public static void assignIssueToMe() {
+//        IssueAssignToMe.shouldBe(visible, Duration.ofSeconds(30)).click();
+//    }
+//
+//    @Step("Заполняем поле Спринт")
+//    public static void enterIssueSprint() {
+//        IssueSprint.shouldBe(visible, Duration.ofSeconds(30)).click();
+//    }
+//
+//    @Step("Нажимаем на кнопку создать")
+//    public static void clickCreateIssueButton() {
+//        CreateIssueButton.shouldBe(visible, Duration.ofSeconds(30)).click();
+//    }
 
     @Step("Получаем Код  созданной задачи")
     public void checkCreatedIssueKey() {

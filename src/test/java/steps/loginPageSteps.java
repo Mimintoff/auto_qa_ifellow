@@ -11,12 +11,12 @@ public class loginPageSteps extends loginPageElements {
 
 
     public static void enterUsername(String username) {
-        usernameField.shouldBe(visible, Duration.ofSeconds(30)).setValue(username);//"AT10"
+        usernameField.shouldBe(visible, Duration.ofSeconds(30)).setValue(username);
 
     }
 
     public static void enterPassword(String password) {
-        passwordField.shouldBe(visible, Duration.ofSeconds(30)).setValue(password);//"Qwerty123"
+        passwordField.shouldBe(visible, Duration.ofSeconds(30)).setValue(password);
 
     }
 
