@@ -14,5 +14,4 @@ public class taskPageElements extends webHooks {
     public static SelenideElement TaskVersion = $(byXpath("//span[@id='fixVersions-field']"));
 
 
-
 }

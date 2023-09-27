@@ -10,7 +10,7 @@ public class webHooks {
     static void setupClass() {
         Configuration.browser = "chrome";
         Configuration.pageLoadStrategy = "normal";
-        Configuration.browserSize = "max";
+        Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://edujira.ifellow.ru";
         Configuration.timeout = 10000;
 

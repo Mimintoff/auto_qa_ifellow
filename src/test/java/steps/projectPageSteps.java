@@ -16,12 +16,12 @@ public class projectPageSteps extends projectPageElements {
         ProjectChoice.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
 
-    public static String getProjectCount() {
-        return ProjectCount.shouldBe(visible, Duration.ofSeconds(30)).getText();
-
+    public static void clickProjectSearch() {
+        ProjectSearch.shouldBe(visible, Duration.ofSeconds(30)).pressEnter();
     }
 
-    public static String ProjectCountGeneral() {
+
+    public static String projectCountGeneral() {
         String str = ProjectCount.getText();
         String[] parts = str.split("из");
         String lastPart = parts[parts.length - 1].trim();

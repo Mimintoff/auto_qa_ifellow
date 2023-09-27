@@ -1,11 +1,16 @@
 package steps;
 
+import com.codeborne.selenide.Selenide;
 import elements.createIssuePageElements;
 import io.qameta.allure.Step;
 
 import java.time.Duration;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static com.codeborne.selenide.Condition.visible;
+import static elements.projectPageElements.ProjectSearch;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class createIssuePageSteps extends createIssuePageElements {
 
@@ -16,17 +21,12 @@ public class createIssuePageSteps extends createIssuePageElements {
     }
 
     @Step("Зполняем поля:выбора проекта, типа задачи, названия задачи, поле описание")
-    public void FillRequiredFields() {
-        ProjectField.shouldBe(visible, Duration.ofSeconds(30)).setValue("Test (TEST)").pressEnter();
-
-        IssueTypeField.shouldBe(visible, Duration.ofSeconds(30)).setValue("Ошибка").pressEnter();
-
-        IssueSummary.shouldBe(visible, Duration.ofSeconds(30)).setValue("Ошибка_Тестовая").pressEnter();//поле названия задачи
-
+    public void FillRequiredFields(String Summary, String Description) {
+        ProjectField.shouldBe(visible, Duration.ofSeconds(30));
+        ProjectField.shouldBe(visible, Duration.ofSeconds(30));
+        IssueSummary.shouldBe(visible, Duration.ofSeconds(30)).setValue(Summary);//"Ошибка_Тестовая"
         IssueDescriptionType.shouldBe(visible, Duration.ofSeconds(30)).click();//поле описание
-        IssueDescription.shouldBe(visible, Duration.ofSeconds(30)).setValue("Ошибка_Тестовая_Описание").pressEnter();
-
-
+        IssueDescription.shouldBe(visible, Duration.ofSeconds(30)).setValue(Description);//"Ошибка_Тестовая_Описание"
     }
 
 
@@ -81,27 +81,40 @@ public class createIssuePageSteps extends createIssuePageElements {
     @Step("Получаем Код  созданной задачи")
     public void checkCreatedIssueKey() {
         CreatedIssueKey.shouldBe(visible, Duration.ofSeconds(30));
+        String issueKey = CreatedIssueKey.getText();
+        Pattern patternTestIssue = Pattern.compile("(TEST-\\d+)");
+        Matcher issueKeyTest = patternTestIssue.matcher(issueKey);
+        String issueKeyTestMatcher = new String();
+        if (issueKeyTest.find()) {
+            issueKeyTestMatcher = issueKeyTest.group(1);
+        }
+        ProjectSearch.shouldBe(visible, Duration.ofSeconds(30)).setValue(String.valueOf(issueKeyTestMatcher)).pressEnter();
     }
 
     @Step("Проверяем что задача назначена на меня")
     public void checkCreatedIssueAssignToMe() {
-        CreatedIssueChoice.shouldBe(visible, Duration.ofSeconds(30));
+        checkAssignToME.shouldBe(visible, Duration.ofSeconds(30));
     }
 
     @Step("Переводим в статус Вработе")
-    public void checkIssueStatusInWork() {
-        IssueStatusInWork.shouldBe(visible, Duration.ofSeconds(30));
+    public void clickIssueStatusInWork() {
+        IssueStatusInWork.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
 
     @Step("Нажимаем на кнопку бизнес процесс")
     public void clickIssueStatusWorkFlow() {
-        IssueStatusWorkFlow.shouldBe(visible, Duration.ofSeconds(30)).click();
+
+        int count = 0;
+        do {
+            Selenide.sleep(300);
+            IssueStatusWorkFlow.click();
+            count++;
+        } while (count < 5 && !IssueFinalizationWindowCheck.isDisplayed());
+
+
+        IssueFinalizationWindowCheck.click();
     }
 
-    @Step("Открываем окно перевода задачи в статус Исполнено ")
-    public void checkIssueFinalizationWindow() {
-        IssueFinalizationWindowCheck.shouldBe(visible, Duration.ofSeconds(30));
-    }
 
     @Step("Нажимаем на кнопку Исполнено")
     public void clickIssueFinalizationWindowCheckButton() {
@@ -109,8 +122,17 @@ public class createIssuePageSteps extends createIssuePageElements {
     }
 
     @Step("Проверяем статус Закрыто")
-    public void checkIssueStatusClosed() {
-        checkIssueStatusClosed.shouldBe(visible, Duration.ofSeconds(30)).click();
+    public void checkIssueStatusClosed(String solvedStatus) {
+
+        String closedStatus;
+
+        int count = 0;
+        do {
+            Selenide.sleep(300);
+            closedStatus = checkIssueStatusClosed.getText();
+            count++;
+        } while (count < 5 && closedStatus != solvedStatus);
+        assertEquals(solvedStatus, closedStatus);
     }
 
 

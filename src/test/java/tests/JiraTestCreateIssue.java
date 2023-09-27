@@ -13,8 +13,8 @@ public class JiraTestCreateIssue extends createIssuePageSteps {
     @BeforeAll
     public static void JiraOpen() {
         open("/");
-        enterUsername();
-        enterPassword();
+        enterUsername("AT10");
+        enterPassword("Qwerty123");
         clickLoginButton();
     }
 
@@ -22,8 +22,13 @@ public class JiraTestCreateIssue extends createIssuePageSteps {
     @Test
     @Tag("Проверяем_создание_задачи")
     public void createIssueTest() {
+
+        createIssue();
+    }
+
+    private void createIssue() {
         OpenCreateTaskWindow();
-        FillRequiredFields();
+        FillRequiredFields("Ошибка", "Ошибка_Тестовая_Описание");
         FillFixVersionField();
         FillPriorityField();
         FillLabelsField();
@@ -33,20 +38,18 @@ public class JiraTestCreateIssue extends createIssuePageSteps {
         assignIssueToMe();
         enterIssueSprint();
         clickCreateIssueButton();
-
     }
 
     @Test
     @Tag("Проверяем_закрытие_задачи")
     public void ClosedIssueTest() {
-
+        createIssue();
         checkCreatedIssueKey();
         checkCreatedIssueAssignToMe();
-        checkIssueStatusInWork();
+        clickIssueStatusInWork();
         clickIssueStatusWorkFlow();
-        checkIssueFinalizationWindow();
         clickIssueFinalizationWindowCheckButton();
-        checkIssueStatusClosed();
+        checkIssueStatusClosed("РЕШЕННЫЕ");
 
 
     }

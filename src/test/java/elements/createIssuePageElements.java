@@ -13,7 +13,7 @@ public class createIssuePageElements extends webHooks {
     public static SelenideElement ProjectField = $(byXpath("//input[@id='project-field']"));
 
     public static SelenideElement IssueTypeField = $(byXpath("//div[@id='issuetype-single-select']/span"));
-//    public static SelenideElement IssueTypeFieldChoice = $(byXpath("//a[contains(text(),'Ошибка')]"));
+
     public static SelenideElement IssueSummary = $(byXpath("//input[@id='summary']"));
     public static SelenideElement IssueDescriptionType = $(byXpath("(//button[contains(text(),'Текст')])[1]"));
     public static SelenideElement IssueDescription = $(byXpath("//textarea[@id='description']"));
@@ -29,12 +29,12 @@ public class createIssuePageElements extends webHooks {
     public static SelenideElement IssueSprint = $(byXpath("(//input[@class =\"text aui-ss-field ajs-dirty-warning-exempt\"])[6]"));
     public static SelenideElement CreateIssueButton = $(byXpath("//input[@id='create-issue-submit']"));
     public static SelenideElement CreatedIssueKey = $(byXpath("//a[@class='issue-created-key issue-link']"));
-    public static SelenideElement CreatedIssueChoice = $(byXpath("//tbody/tr[1]"));
+    public static SelenideElement checkAssignToME = $(byXpath("//span[@id='issue_summary_assignee_AT10']"));
     public static SelenideElement IssueStatusInWork = $(byXpath("//span[contains(text(),'В работе')]"));
     public static SelenideElement IssueStatusWorkFlow = $(byXpath("//a[@id='opsbar-transitions_more']"));
-    public static SelenideElement IssueFinalizationWindowCheck = $(byXpath("//h2[contains(text(),'Исполнено')]"));
+    public static SelenideElement IssueFinalizationWindowCheck = $(byXpath("//aui-item-link[@id='action_id_51']/a"));
     public static SelenideElement IssueFinalizationWindowCheckButton = $(byXpath("//input[@id='issue-workflow-transition-submit']"));
-    public static SelenideElement checkIssueStatusClosed = $(byXpath("//span[contains(text(),'Решенные')]"));
+    public static SelenideElement checkIssueStatusClosed = $(byXpath("//span[@id='status-val']/span"));
 
 
 }

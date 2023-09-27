@@ -6,8 +6,9 @@ import static com.codeborne.selenide.Condition.visible;
 
 public class taskPageSteps extends taskPageElements {
 
-    public static void searchTaskInput() {
+    public static void searchTaskInput(String taskNumber) {
         TaskSearchInput.shouldBe(visible, Duration.ofSeconds(30)).click();
+        TaskSearchInput.shouldBe(visible, Duration.ofSeconds(30)).setValue(taskNumber);
     }
 
     public static void selectTask() {

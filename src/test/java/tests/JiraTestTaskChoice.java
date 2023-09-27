@@ -13,19 +13,19 @@ public class JiraTestTaskChoice extends taskPageSteps {
     @BeforeAll
     public static void JiraOpenAndLogin() {
         open("/");
-        enterUsername();
-        enterPassword();
+        enterUsername("AT10");
+        enterPassword("Qwerty123");
         clickLoginButton();
     }
 
     @Test
     public void TaskSearchTest() {
-        TaskSearchInput.setValue("TEST-21967");
+        searchTaskInput("TEST-21967");
         selectTask();
-        String version = taskPageSteps.getTaskVersion();
-        String status = taskPageSteps.getTaskStatus();
-        System.out.println(version);
-        System.out.println(status);
+        String version = getTaskVersion();
+        String status = getTaskStatus();
+        System.out.println("Версия задачи: " + version);
+        System.out.println("Статус задачи: " + status);
 
     }
 }
