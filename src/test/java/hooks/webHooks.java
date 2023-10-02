@@ -1,13 +1,13 @@
 package hooks;
 
 import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
+import io.cucumber.java.Before;
+
 
 public class webHooks {
 
-    @BeforeAll
-
-    static void setupClass() {
+    @Before
+    public static void setupClass() {
         Configuration.browser = "chrome";
         Configuration.pageLoadStrategy = "normal";
         Configuration.browserSize = "1920x1080";

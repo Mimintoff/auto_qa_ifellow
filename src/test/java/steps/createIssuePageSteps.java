@@ -41,54 +41,7 @@ public class createIssuePageSteps extends createIssuePageElements {
         IssueSprint.shouldBe(visible, Duration.ofSeconds(30)).click();
         CreateIssueButton.shouldBe(visible, Duration.ofSeconds(30)).click();
     }
-//
-//    @Step("Заполняем поле Исправить в версиях")
-//    public void FillFixVersionField() {
-//        IssueFixVersion.shouldBe(visible, Duration.ofSeconds(30)).click();
-//    }
-//
-//    @Step("Заполняем поле приоритета задачи")
-//    public void FillPriorityField() {
-//
-//        PriorityField.shouldBe(visible, Duration.ofSeconds(30)).click();
-//    }
-//
-//    @Step("Заполняем поле Метки")
-//    public void FillLabelsField() {
-//        Issuelabels.shouldBe(visible, Duration.ofSeconds(30)).click();
-//    }
-//
-//    @Step("Заполняем поле окружения задачи")
-//    public void FillEnvironmentField() {
-//        IssueEnvironmentType.shouldBe(visible, Duration.ofSeconds(30)).click();
-//        IssueEnvironment.shouldBe(visible, Duration.ofSeconds(30)).click();
-//    }
-//
-//    @Step("Заполняем поле Затронуты версии")
-//    public void FillAffectedVersionField() {
-//        IssueAffectedVersion.shouldBe(visible, Duration.ofSeconds(30)).click();
-//    }
-//
-//    @Step("Заполняем поля Связанные задачи")
-//    public static void selectIssueRelatedTasks() {
-//        IssueRelatedTasksType.shouldBe(visible, Duration.ofSeconds(30)).click();
-//        IssueRelatedTasks.shouldBe(visible, Duration.ofSeconds(30)).click();
-//    }
-//
-//    @Step("Нажимаем кнопку Назначить на меня")
-//    public static void assignIssueToMe() {
-//        IssueAssignToMe.shouldBe(visible, Duration.ofSeconds(30)).click();
-//    }
-//
-//    @Step("Заполняем поле Спринт")
-//    public static void enterIssueSprint() {
-//        IssueSprint.shouldBe(visible, Duration.ofSeconds(30)).click();
-//    }
-//
-//    @Step("Нажимаем на кнопку создать")
-//    public static void clickCreateIssueButton() {
-//        CreateIssueButton.shouldBe(visible, Duration.ofSeconds(30)).click();
-//    }
+
 
     @Step("Получаем Код  созданной задачи")
     public void checkCreatedIssueKey() {

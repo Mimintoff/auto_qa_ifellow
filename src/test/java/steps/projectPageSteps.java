@@ -8,17 +8,13 @@ import static com.codeborne.selenide.Condition.visible;
 
 public class projectPageSteps extends projectPageElements {
 
-    public static void clickProjectLink() {
+    public static void projectPageView(){
         ProjectLink.shouldBe(visible, Duration.ofSeconds(30)).click();
-    }
-
-    public static void clickProjectChoice() {
         ProjectChoice.shouldBe(visible, Duration.ofSeconds(30)).click();
-    }
-
-    public static void clickProjectSearch() {
         ProjectSearch.shouldBe(visible, Duration.ofSeconds(30)).pressEnter();
     }
+
+
 
 
     public static String projectCountGeneral() {
