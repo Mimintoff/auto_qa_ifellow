@@ -8,32 +8,16 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import static io.restassured.RestAssured.given;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RickAndMortyApiSteps {
 
-    public String charid;
-    public static String charlocation;
+
     public static JSONObject namePerson;
 
 
-    public static void gettingCharLocation(String id) {
-        Response gettingCharLocation = given()
-                .baseUri("https://rickandmortyapi.com/api")
-                .when()
-                .get("/character/" + id)
-                .then()
-                .statusCode(200)
-                .log().all()
-                .extract()
-                .response();
-        charlocation = new JSONObject(gettingCharLocation.getBody().asString()).getJSONObject("location").get("name").toString();
-        System.out.println(charlocation);
-
-
-    }
-
-    public static void gettingNameParams(String nameParams) {
-        Response gettingNameParams = given()
+    public static void gettingParams(String nameParams) {
+        Response gettingParams = given()
                 .baseUri("https://rickandmortyapi.com/api")
                 .when()
                 .get("/character/?name=" + nameParams)
@@ -43,7 +27,7 @@ public class RickAndMortyApiSteps {
                 .extract()
                 .response();
 
-        namePerson = new JSONObject(gettingNameParams.getBody().asString());
+        namePerson = new JSONObject(gettingParams.getBody().asString());
         JSONArray results = namePerson.getJSONArray("results");
         JSONObject morty = results.getJSONObject(0);
         JSONArray episodes = morty.getJSONArray("episode");
@@ -66,6 +50,9 @@ public class RickAndMortyApiSteps {
         JSONObject lastCharacterJson = new JSONObject(lastCharacterResponse.getBody().asString());
         String lastCharacterSpecies = lastCharacterJson.getString("species");
         String lastCharacterLocation = lastCharacterJson.getJSONObject("location").getString("name");
+
+        assertEquals("Human", lastCharacterSpecies);
+        assertEquals("Earth (Replacement Dimension)", lastCharacterLocation);
 
 
     }
