@@ -10,8 +10,10 @@ public class RickAndMortyApiTest {
     @Test
     public void testMortyName(){
 
+
         gettingParams("Morty Smith");
 
     }
+
 
 }

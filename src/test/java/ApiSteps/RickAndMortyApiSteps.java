@@ -12,12 +12,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RickAndMortyApiSteps {
 
-
     public static JSONObject namePerson;
-
+    public static String expectedSpecies;
+    public static String expectedLocation;
 
     public static void gettingParams(String nameParams) {
-        Response gettingParams = given()
+        Response response = getResponse(nameParams);
+        extractDataFromResponse(response);
+    }
+
+    public static Response getResponse(String nameParams) {
+        return given()
                 .baseUri("https://rickandmortyapi.com/api")
                 .when()
                 .get("/character/?name=" + nameParams)
@@ -27,7 +32,18 @@ public class RickAndMortyApiSteps {
                 .extract()
                 .response();
 
-        namePerson = new JSONObject(gettingParams.getBody().asString());
+    }
+
+    public static void speciesAndLocation(String[] args) {
+        Response response = getResponse(String.valueOf(namePerson));
+        expectedSpecies = response.path("results[0].species");
+        expectedLocation = response.path("results[0].location.name");
+
+    }
+
+
+    public static void extractDataFromResponse(Response response) {
+        namePerson = new JSONObject(response.getBody().asString());
         JSONArray results = namePerson.getJSONArray("results");
         JSONObject morty = results.getJSONObject(0);
         JSONArray episodes = morty.getJSONArray("episode");
@@ -40,24 +56,25 @@ public class RickAndMortyApiSteps {
         JSONObject lastEpisodeJson = new JSONObject(lastEpisodeResponse.getBody().asString());
         JSONArray characters = lastEpisodeJson.getJSONArray("characters");
 
-
         String lastCharacterUrl = characters.getString(characters.length() - 1);
         Response lastCharacterResponse = RestAssured.given()
                 .contentType(ContentType.JSON)
                 .get(lastCharacterUrl);
 
-
         JSONObject lastCharacterJson = new JSONObject(lastCharacterResponse.getBody().asString());
         String lastCharacterSpecies = lastCharacterJson.getString("species");
         String lastCharacterLocation = lastCharacterJson.getJSONObject("location").getString("name");
 
-        assertEquals("Human", lastCharacterSpecies);
-        assertEquals("Earth (Replacement Dimension)", lastCharacterLocation);
 
 
+        checkResults(lastCharacterSpecies, lastCharacterLocation);
     }
 
+    public static void checkResults(String species, String location) {
 
+        assertEquals(expectedSpecies, species);
+        assertEquals(expectedLocation, location);
+    }
 }
 
 
